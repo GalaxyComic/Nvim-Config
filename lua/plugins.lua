@@ -30,6 +30,7 @@ require("lazy").setup({
             })
         end,
     },
+    { "nvim-treesitter/nvim-treesitter" },
     { "junegunn/fzf" },
     { "junegunn/fzf.vim" },
     { "stevearc/conform.nvim" },
