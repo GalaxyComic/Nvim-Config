@@ -5,7 +5,7 @@ vim.cmd("highlight InsertCursor guifg=#DBBFEF guibg=#DBBFEF")
 vim.cmd("highlight Visual guibg=#540099")
 vim.cmd("highlight VisualCursor guifg=#DBBFEF guibg=#A4A0E8")
 
--- vim.cmd("highlight MatchParen guibg=#DBBFEF")
+vim.cmd("highlight MatchParen guibg=#540099")
 
 vim.cmd("highlight LineNr guifg=#564E6B")
 

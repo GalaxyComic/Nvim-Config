@@ -89,9 +89,27 @@ require("lazy").setup({
             })
         end,
     },
+    {
+        "smoka7/hop.nvim",
+        version = "*",
+        config = function()
+            require("hop").setup({
+                keys = "abcdefghijklmnopqrstuvwxyz",
+                multi_windows = true,
+            })
+        end,
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup({})
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            local cmp = require("cmp")
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+    },
     { "junegunn/fzf" },
     { "junegunn/fzf.vim" },
-    { "windwp/nvim-autopairs" },
     { "goolord/alpha-nvim" },
     { "oneslash/helix-nvim", version = "*" },
     { "neovim/nvim-lspconfig" },
