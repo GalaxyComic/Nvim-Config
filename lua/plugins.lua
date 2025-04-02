@@ -30,10 +30,67 @@ require("lazy").setup({
             })
         end,
     },
-    { "nvim-treesitter/nvim-treesitter" },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = "all",
+                highlight = {
+                    enable = true,
+                },
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
+                        init_selection = "<CR>",
+                        node_incremental = "<C-n>",
+                        node_decremental = "<C-p>",
+                        scope_incremental = "<C-Space>",
+                    },
+                },
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                        },
+                    },
+                },
+            })
+        end,
+    },
+    {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                    python = { "black" },
+                },
+                formatters = {
+                    black = {
+                        command = "black",
+                        args = { "--line-length", "79", "-" },
+                        stdin = true,
+                    },
+                    stylua = {
+                        command = "stylua",
+                        args = { "--indent-type", "Spaces", "--indent-width", "4", "-" },
+                        stdin = true,
+                    },
+                },
+                format_on_save = {
+                    lsp_fallback = true,
+                    async = false,
+                    timeout_ms = 2000,
+                },
+            })
+        end,
+    },
     { "junegunn/fzf" },
     { "junegunn/fzf.vim" },
-    { "stevearc/conform.nvim" },
     { "windwp/nvim-autopairs" },
     { "goolord/alpha-nvim" },
     { "oneslash/helix-nvim", version = "*" },
