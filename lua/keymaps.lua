@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "gw", ":HopWord<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", ":HopWord<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>f", ":Files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>r", ":History<CR>", { noremap = true, silent = true })

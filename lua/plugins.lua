@@ -31,6 +31,18 @@ require("lazy").setup({
         end,
     },
     {
+        "andweeb/presence.nvim",
+        config = function()
+            require("presence"):setup({
+                -- Configuration options (optional)
+                auto_update = true, -- Automatically update the presence
+                neovim_image_text = "Neovim", -- Text for Neovim's logo
+                main_image = "file", -- You can set "file" or "neovim" as the image
+                -- More settings can be added here
+            })
+        end,
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
@@ -108,8 +120,8 @@ require("lazy").setup({
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },
-    { "junegunn/fzf" },
     { "junegunn/fzf.vim" },
+    { "junegunn/fzf" },
     { "goolord/alpha-nvim" },
     { "oneslash/helix-nvim", version = "*" },
     { "neovim/nvim-lspconfig" },
